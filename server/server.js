@@ -12,7 +12,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB."))
   .catch((err) => console.error("Could not connect to MongoDB", err));
 
-const server = app.listen(config.port, (err) => {
+app.listen(config.port, (err) => {
   if (err) {
     console.log(err);
   }
