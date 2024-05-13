@@ -39,6 +39,10 @@ router
     .route("/api/getAllAssignedQueries")
     .get(queryController.getAllAssignedQueries)
 
+router
+    .route("/api/queries/:userId/:role/:filterCriteria")
+    .get(queryController.filteredQuery)
+
 // //To upload image 
 // router
 //     .route("/api/upload-image")
