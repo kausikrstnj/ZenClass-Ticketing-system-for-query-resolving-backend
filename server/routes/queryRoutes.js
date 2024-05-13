@@ -13,6 +13,11 @@ router
     .route("/api/queries/:userId/:role")
     .get(queryController.list)
 
+//to view filtered queries    
+router
+    .route("/api/queries/:userId/:role/:filterCriteria")
+    .get(queryController.filteredQuery)
+
 //To view query
 router
     .route("/api/query/:queryId")
@@ -38,10 +43,5 @@ router
 router
     .route("/api/getAllAssignedQueries")
     .get(queryController.getAllAssignedQueries)
-
-// //To upload image 
-// router
-//     .route("/api/upload-image")
-//     .put(queryController.uploadImg)
 
 module.exports = router;
