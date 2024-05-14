@@ -44,4 +44,16 @@ router
     .route("/api/getAllAssignedQueries")
     .get(queryController.getAllAssignedQueries)
 
+<<<<<<< HEAD
+=======
+router
+    .route("/api/queries/:userId/:role/:filterCriteria")
+    .get(queryController.filteredQuery)
+
+// //To upload image 
+// router
+//     .route("/api/upload-image")
+//     .put(queryController.uploadImg)
+
+>>>>>>> a8a2bc2e4c0e7bf82909b2e37bbb92234977390e
 module.exports = router;
