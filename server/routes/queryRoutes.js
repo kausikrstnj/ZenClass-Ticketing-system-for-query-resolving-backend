@@ -50,7 +50,7 @@ router
     .route("/api/queries/:userId/:role/:filterCriteria")
     .get(queryController.filteredQuery)
 
-// //To upload image 
+// //To upload image
 // router
 //     .route("/api/upload-image")
 //     .put(queryController.uploadImg)
