@@ -205,54 +205,5 @@ const getAllAssignedQueries = async (req, res) => {
     }
 };
 
-<<<<<<< HEAD
 module.exports = { create, list, view, createMessage, getMentors, assignMentor, closeQuery, getAllAssignedQueries, filteredQuery };
-=======
-const filteredQuery = async (req, res) => {
-    try {
-        let userId = req.params.userId;
-        let role = req.params.role;
-        let filter = req.params.filterCriteria;
-        console.log('Filter - ', filter);
-        let totalQuery = 0;
-        let pendingQuery = 0;
-        let assignedQueries = 0;
-        let resolvedQueries = 0;
-        let queries = '';
 
-        if (role == 'mentor') {
-            queries = await Query.find({ assignedTo: userId });
-            pendingQuery = await Query.countDocuments({ assignedTo: userId, status: 'pending' });
-            assignedQueries = await Query.countDocuments({ assignedTo: userId, status: 'assigned' });
-            resolvedQueries = await Query.countDocuments({ assignedTo: userId, status: 'closed' });
-        } else if (role == 'student') {
-            queries = await Query.find({ userId: userId });
-            pendingQuery = await Query.countDocuments({ userId: userId, status: 'pending' });
-            assignedQueries = await Query.countDocuments({ userId: userId, status: 'assigned' });
-            resolvedQueries = await Query.countDocuments({ userId: userId, status: 'closed' });
-        } else {
-            queries = await Query.find();
-            pendingQuery = await Query.countDocuments({ status: 'pending' });
-            assignedQueries = await Query.countDocuments({ status: 'assigned' });
-            resolvedQueries = await Query.countDocuments({ status: 'closed' });
-        }
-
-        if (filter) {
-            queries = queries.filter(query => {
-                // Implement your filter logic here based on the query and filter criteria
-                // For example:
-                return query.title.includes(filter) || query.queryNumber.includes(filter);
-            });
-        }
-        console.log('queries - ', queries)
-
-        totalQuery = queries.length;
-        let recentQuery = await Query.findOne({ userId: userId }).sort({ created: -1 });
-        res.status(200).json({ queries, recentQuery, totalQuery, pendingQuery, assignedQueries, resolvedQueries });
-    } catch (error) {
-        return res.status(400).json({ error: error });
-    }
-};
-
-module.exports = { create, list, view, createMessage, getMentors, assignMentor, closeQuery, getAllAssignedQueries ,filteredQuery};
->>>>>>> a8a2bc2e4c0e7bf82909b2e37bbb92234977390e
