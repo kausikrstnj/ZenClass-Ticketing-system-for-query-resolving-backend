@@ -60,6 +60,7 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
     try {
+        console.log(' req.params - ', req.params);
         let userId = req.params.userId;
         let role = req.params.role;
         let totalQuery = 0;
@@ -94,10 +95,11 @@ const list = async (req, res) => {
 
 const filteredQuery = async (req, res) => {
     try {
+        console.log(' req.params - ', req.params);
+        console.log('Filter - ', filter);
         let userId = req.params.userId;
         let role = req.params.role;
-        let filter = req.params.filterCriteria;
-        console.log('Filter - ', filter);
+        let filter = req.params.filterInput;
         let totalQuery = 0;
         let pendingQuery = 0;
         let assignedQueries = 0;

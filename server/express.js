@@ -9,8 +9,8 @@ const queryRoutes = require("./routes/queryRoutes");
 const app = express();
 
 
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000, }));
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ limit: '100mb', extended: true, parameterLimit: 100000, }));
 app.use(compress());
 app.use(helmet());
 app.use(cors());
