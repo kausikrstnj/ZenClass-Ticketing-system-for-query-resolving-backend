@@ -13,10 +13,6 @@ router
     .route("/api/queries/:userId/:role")
     .get(queryController.list)
 
-//to view filtered queries    
-router
-    .route("/api/queries/:userId/:role/:filterCriteria")
-    .get(queryController.filteredQuery)
 
 //To view query
 router
@@ -44,8 +40,9 @@ router
     .route("/api/getAllAssignedQueries")
     .get(queryController.getAllAssignedQueries)
 
+//to view filtered queries    
 router
-    .route("/api/queries/:userId/:role/:filterCriteria")
+    .route("/api/queries/:userId/:role/:filterInput")
     .get(queryController.filteredQuery)
 
 module.exports = router;
