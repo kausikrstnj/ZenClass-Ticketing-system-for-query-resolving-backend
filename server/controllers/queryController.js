@@ -125,8 +125,6 @@ const filteredQuery = async (req, res) => {
 
         if (filter) {
             queries = queries.filter(query => {
-                // Implement your filter logic here based on the query and filter criteria
-                // For example:
                 return query.title.includes(filter) || query.queryNumber.includes(filter);
             });
         }
