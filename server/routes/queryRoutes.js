@@ -40,9 +40,4 @@ router
     .route("/api/getAllAssignedQueries")
     .get(queryController.getAllAssignedQueries)
 
-//to view filtered queries    
-router
-    .route("/api/queries/:userId/:role/:filterInput")
-    .get(queryController.filteredQuery)
-
 module.exports = router;
