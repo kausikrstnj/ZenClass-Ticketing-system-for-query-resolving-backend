@@ -1,23 +1,19 @@
 const express = require("express");
+const cors = require('cors');
 const bodyParser = require("body-parser");
-const cors = require("cors");
-const helmet = require("helmet");
-const compress = require("compression");
 const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
-const queryRoutes = require("./routes/queryRoutes");
+const paperRoutes = require("./routes/paperRoutes");
 const app = express();
 
-
-app.use(bodyParser.json({ limit: '100mb' }));
-app.use(bodyParser.urlencoded({ limit: '100mb', extended: true, parameterLimit: 100000, }));
-app.use(compress());
-app.use(helmet());
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
-app.use("/", userRoutes);
+
+//app.use("/", userRoutes);
 app.use("/", authRoutes);
-app.use("/", queryRoutes);
+app.use("/", paperRoutes);
 
 
 module.exports = app;

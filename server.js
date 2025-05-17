@@ -1,7 +1,6 @@
 const config = require("../config/config");
 const app = require("./express");
 const mongoose = require("mongoose");
-const socketIo = require('socket.io');
 
 //Connect to MongoDB
 mongoose

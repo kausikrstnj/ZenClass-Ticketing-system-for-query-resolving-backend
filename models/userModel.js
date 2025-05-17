@@ -9,12 +9,10 @@ const userSchema = new mongoose.Schema({
     match: [/.+\@.+\..+/, "Please enter a valid email address"],
     required: "Name is required",
   },
+  phone: { type: Number, trim: true },
   created: { type: Date, default: Date.now },
-  updated: { type: Date, default: Date.now },
-  password: { type: String, required: "Password is required" },
-  role: { type: String }, // admin, mentor, student
-  phn: { type: Number, required: "Phone number is required" },
-  resetToken: { type: String },
+  role: { type: String },
+  password: { type: String },
 });
 
 module.exports = mongoose.model("User", userSchema);
